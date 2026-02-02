@@ -85,10 +85,10 @@ const AboutMe = () => {
                 {/* description */}
                 <div className="flex-1 md:w-1/2 m-10 text-left">
                     <p className="pb-4">
-                        Hiya! I am currently a student at the University of Auckland in my penultimate year, studying a Bachelor of Science majoring in Computer Science. I have a passion for creating aesthetic and functional web applications that solve real world problems, while also making a positive impact on people. 
+                        Hi! I am currently in my final year studying a Bachelor of Science majoring in Computer Science at the University of Auckland. I have a passion for creating aesthetic and functional web applications that solve real world problems, while also making a positive impact on people. 
                     </p>
                     <p className="pb-4">
-                        In my free time I enjoy editing videos, travelling, gymming, listening to music and spending time with loved ones. I'm always eager to learn and take on new challenges, and make genuine connections with people.
+                        In my free time I enjoy travelling, editing, gymming, listening to music and spending time with loved ones. I'm always eager to learn and take on new challenges, and make genuine connections with people.
                     </p>
                     <p className="italic text-gray-600 text-sm">
                         [swipe photos left and right]
