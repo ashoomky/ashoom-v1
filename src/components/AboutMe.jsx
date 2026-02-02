@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import { useState } from 'react'
 import NatsPhoto from '../assets/nats-vlog-photo.JPG'
 import HackathonHeadshot from '../assets/25-wdccxsesa-hackathon-headshot.JPEG'
 import CasualPhoto from '../assets/casual-food-photo.jpg'
