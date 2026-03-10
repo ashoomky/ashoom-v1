@@ -2,6 +2,8 @@
 
 This is my personal website, built with **React** and **Vite**. It showcases my projects, skills, and portfolio, and serves as a platform to experiment with modern web development technologies.
 
+You can access it through this [link](https://ashleeshum.com) !
+
 ## Features
 
 - **React + Vite:** Minimal setup with fast development experience and Hot Module Replacement (HMR).  
