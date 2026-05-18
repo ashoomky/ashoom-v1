@@ -3,7 +3,7 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import Folder from '../assets/folder-icon-2.png'
 const ProjectCard = ({title, description, GitHubLink, TechStack, photo, isExpanded, onToggle}) => {
     return (
-        <div className={`bg-white p-4 m-3 md:m-6 ${isExpanded ? 'w-full md:w-[700px]' : 'w-full h-[320px] md:h-[400px]'}`}>
+        <div className={`bg-white p-4 m-3 md:m-6 ${isExpanded ? 'w-full md:w-[700px]' : 'w-[260px] h-[320px] md:w-[280px] md:h-[400px]'}`}>
             {!isExpanded ? (
                 <div className="items-center justify-center flex flex-col h-full space-y-3">
                 <img
