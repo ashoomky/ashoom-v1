@@ -4,9 +4,8 @@ import FindrScreenshot from "../assets/FindrScreenshot.png"
 import PersonalWebsiteScreenshot from "../assets/personal-website-screenshot.jpg"
 import AusaPhoto from "../assets/ausa-project-photo.png"
 import {useState} from "react"
-import React from "react"
 const Projects = () => {
-    const [expandedCardIndex, setExpandedCardIndex] = React.useState(null);
+    const [expandedCardIndex, setExpandedCardIndex] = useState(null);
     const projects = [
         {
             title: "Findr",
@@ -50,7 +49,7 @@ const Projects = () => {
                     isHidden={expandedCardIndex !== null && expandedCardIndex !== index}
                     onToggle={() => {
                         setExpandedCardIndex(expandedCardIndex === index ? null : index);
-                    }}
+                }}
                     />
                 ))}
             </div>

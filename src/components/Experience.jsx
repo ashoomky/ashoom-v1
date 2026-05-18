@@ -9,16 +9,13 @@ const Experience = () => {
             end: "Current",
             description: (
                 <>
-                    As a Marketing Director, I <strong>lead weekly meetings</strong>, delegate tasks effectively, and
-                    facilitate brainstorming sessions to drive creativity and collaboration. <br />
-                    <br />
-                    I manage a team of <strong>4</strong>, coordinate marketing efforts across multiple platforms and
-                    boosted account engagement by <strong>278.1%</strong> in one month. <br />
-                    Oversaw content strategy that increased follower growth by <strong>150%</strong> and improved
-                    average post reach by <strong>200%</strong>. <br />
-                    <br />
-                    Strengthened my skills in <em>leadership, communication, problem-solving, and adaptability </em>
-                    while ensuring campaigns were delivered on time and aligned with club goals.
+                    As Marketing Director, I <strong>lead weekly meetings</strong>, delegate tasks, and facilitate brainstorming to drive creativity. 
+                    <br/>
+                    <br/>
+                    I manage a team of <strong>5</strong>, coordinate campaigns across platforms, and increased account engagement by 
+                    <strong> 278%</strong> in one month. I also oversaw content strategy that boosted follower growth by <strong>150% </strong> 
+                    and post reach by <strong>200%</strong>, strengthening my skills in <em>leadership, communication, problem-solving, 
+                    and adaptability</em>.
                 </>
 
             )
@@ -37,7 +34,7 @@ const Experience = () => {
                     My most viewed video reached <strong>40,000+ views</strong>, and several others gained consistent traction,
                     demonstrating my ability to create engaging, shareable content.
                     This experience strengthened my skills in <strong>video editing</strong>,
-                    <strong>storytelling</strong>, and <strong>digital media</strong>,
+                    <strong> storytelling</strong>, and <strong>digital media</strong>,
                     while also teaching me how to analyse audience metrics to grow viewership.
                 </>
             )
@@ -106,7 +103,6 @@ const Experience = () => {
         if (cardRef[index].current) {
             cardRef[index].current.scrollIntoView({ behavior: 'smooth', block: 'center' });
             setActiveIndex(index); // updates active index when clicking on a dot
-
         }
     };
     return (

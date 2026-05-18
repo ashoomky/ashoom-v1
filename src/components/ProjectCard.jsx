@@ -6,7 +6,7 @@ const ProjectCard = ({title, description, GitHubLink, TechStack, photo, isExpand
 
     return (
         
-        <div className={` transition-all duration-500 ease-out ${isExpanded ? 'lg:w-[800px] lg:h-full' : 'w-100% h-[400px]'} bg-white p-4 m-6`}>
+        <div className={` transition-all duration-500 ease-out ${isExpanded ? 'lg:w-[800px] lg:h-full' : 'w-full h-[400px]'} bg-white p-4 m-6`}>
             {!isExpanded ? (
                 <div className="items-center justify-center flex flex-col h-full space-y-3">
                 <img 

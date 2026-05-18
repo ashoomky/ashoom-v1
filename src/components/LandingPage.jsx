@@ -94,7 +94,7 @@ const LandingPage = () => {
         
             </div>
             <div id = "home" 
-                className = "w-full h-screen flex items-center justify-center md:justify-start relative bg-gradient-to-b from-pink-300 via-pink-200 to-pink-100" 
+                className = "w-full h-screen flex items-center justify-center md:justify-start relative bg-gradient-to-b from-pink-300 via-pink-200 to-pink-100 overflow-hidden" 
                 onMouseMove = {handleMouseMove}
                 style={{ background: "linear-gradient(to bottom right,  #C6A6B8, #E8D0D7, #FFECEC, #E8D0D7, #C6A6B8)", // custom gradient colors
                 }}>
@@ -103,7 +103,7 @@ const LandingPage = () => {
             <svg
                     ref={svgRef}
                     xmlns="http://www.w3.org/2000/svg"
-                    className="absolute inset-0 w-screen h-screen"
+                    className="absolute inset-0 w-full h-full"
                 >
                     {/*  svg pipeline - each step alters the svg file */}
                     <defs>
