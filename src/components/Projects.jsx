@@ -36,7 +36,7 @@ const Projects = () => {
                 projects
             </div>
             {/* project cards */}
-            <div className={`flex flex-col items-center justify-center mt-8 md:mt-20 ${expandedCardIndex === null ? 'lg:flex-row lg:items-start lg:gap-2' : ''}`}>
+            <div className={`flex flex-col items-center justify-center ${expandedCardIndex === null ? 'lg:flex-row lg:items-start lg:gap-2' : ''}`}>
                 {projects.map((project, index) => {
                     const isExpanded = expandedCardIndex === index;
                     const isHidden = expandedCardIndex !== null && !isExpanded;
