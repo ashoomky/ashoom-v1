@@ -1,12 +1,9 @@
 import { X, ArrowLeft, File } from 'lucide-react';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import Folder from '../assets/folder-icon-2.png'
-const ProjectCard = ({title, description, GitHubLink, TechStack, photo, isExpanded, isHidden, onToggle}) => {
-    if (isHidden) return null;
-
+const ProjectCard = ({title, description, GitHubLink, TechStack, photo, isExpanded, onToggle}) => {
     return (
-        
-        <div className={`transition-all duration-500 ease-out ${isExpanded ? 'w-full md:w-[600px] lg:w-[800px]' : 'w-full h-[320px] md:h-[400px]'} bg-white p-4 m-3 md:m-6`}>
+        <div className={`bg-white p-4 m-3 md:m-6 ${isExpanded ? 'w-full md:w-[700px]' : 'w-full h-[320px] md:h-[400px]'}`}>
             {!isExpanded ? (
                 <div className="items-center justify-center flex flex-col h-full space-y-3">
                 <img

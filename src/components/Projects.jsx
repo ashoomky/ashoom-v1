@@ -36,22 +36,33 @@ const Projects = () => {
                 projects
             </div>
             {/* project cards */}
-            <div className="flex md:flex-row flex-col justify-center items-center mt-8 md:mt-20">
-                {projects.map((project, index) => (
-                    <ProjectCard 
-                    key={index} 
-                    title={project.title} 
-                    description={project.description} 
-                    GitHubLink={project.GitHubLink}
-                    TechStack={project.TechStack}
-                    photo={project.photo}
-                    isExpanded={expandedCardIndex === index}
-                    isHidden={expandedCardIndex !== null && expandedCardIndex !== index}
-                    onToggle={() => {
-                        setExpandedCardIndex(expandedCardIndex === index ? null : index);
-                }}
-                    />
-                ))}
+            <div className="flex md:flex-row flex-col justify-center items-center md:items-start mt-8 md:mt-20">
+                {projects.map((project, index) => {
+                    const isExpanded = expandedCardIndex === index;
+                    const isHidden = expandedCardIndex !== null && !isExpanded;
+                    return (
+                        <div
+                            key={index}
+                            className={`overflow-hidden ${
+                                isHidden
+                                    ? 'max-h-0 md:w-0 opacity-0'
+                                    : isExpanded
+                                        ? 'max-h-[1200px] opacity-100'
+                                        : 'max-h-[500px] opacity-100'
+                            }`}
+                        >
+                            <ProjectCard
+                                title={project.title}
+                                description={project.description}
+                                GitHubLink={project.GitHubLink}
+                                TechStack={project.TechStack}
+                                photo={project.photo}
+                                isExpanded={isExpanded}
+                                onToggle={() => setExpandedCardIndex(isExpanded ? null : index)}
+                            />
+                        </div>
+                    );
+                })}
             </div>
         </div>
     )
