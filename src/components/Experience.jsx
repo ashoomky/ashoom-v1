@@ -124,10 +124,6 @@ const Experience = () => {
             </span>
             {/* experience contents */}
             <div className="flex flex-col relative mt-10 mx-auto max-w-5xl">
-                {/* vertical timeline indicator (only on desktop) */}
-                <div className="absolute top-10 left-25 transform -translate-x-1/2 w-1 bg-[#C6A6B8] hidden md:block h-full"></div>
-                {/* horizontal divider line */}
-                <div className="absolute -bottom-10 left-25 w-full h-[3px] bg-[#C6A6B8] hidden md:block"></div>
                 {/* experience cards with circles */}
                 <div className="flex md:flex-1 flex-col space-y-16">
                     {experiences.map((exp, i) => (
@@ -135,8 +131,15 @@ const Experience = () => {
                             {/* circle beside timeline */}
                             <button
                                 onClick={() => scrollToCard(i)}
-                                className={`absolute top-10 left-25 transform -translate-x-1/2 w-5 h-5 border-[3px] border-[#C6A6B8] rounded-full hover:bg-[#C6A6B8] transition cursor-pointer hidden md:block ${i === activeIndex ? "bg-[#C6A6B8]" : "bg-white"}`}
+                                className={`absolute top-10 left-25 transform -translate-x-1/2 w-5 h-5 border-[3px] border-[#C6A6B8] rounded-full hover:bg-[#C6A6B8] transition cursor-pointer hidden md:block z-10 ${i === activeIndex ? "bg-[#C6A6B8]" : "bg-white"}`}
                             />
+                            {/* connecting line to next circle — omitted on last card */}
+                            {i < experiences.length - 1 && (
+                                <div
+                                    className="absolute left-25 -translate-x-1/2 w-1 bg-[#C6A6B8] hidden md:block"
+                                    style={{ top: '60px', bottom: '-105px' }}
+                                />
+                            )}
                             {/* card itself */}
                             <div className="md:ml-50">
                                 <ExperienceCard
