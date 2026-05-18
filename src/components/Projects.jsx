@@ -30,13 +30,13 @@ const Projects = () => {
         },
     ]
     return (
-        <div id="projects" className="w-full justify-center p-4 pt-24 md:p-30">
+        <div id="projects" className="w-full justify-center p-4 pt-24 md:p-30 lg:px-4">
             {/* title */}
             <div className="text-4xl">
                 projects
             </div>
             {/* project cards */}
-            <div className="flex md:flex-row flex-col justify-center items-center md:items-start mt-8 md:mt-20">
+            <div className="flex lg:flex-row flex-col justify-center items-center lg:items-start mt-8 md:mt-20 lg:gap-2">
                 {projects.map((project, index) => {
                     const isExpanded = expandedCardIndex === index;
                     const isHidden = expandedCardIndex !== null && !isExpanded;
@@ -45,10 +45,8 @@ const Projects = () => {
                             key={index}
                             className={`overflow-hidden ${
                                 isHidden
-                                    ? 'max-h-0 md:w-0 opacity-0'
-                                    : isExpanded
-                                        ? 'max-h-[1200px] opacity-100'
-                                        : 'max-h-[500px] opacity-100'
+                                    ? 'max-h-0 lg:w-0 lg:flex-none opacity-0'
+                                    : `${isExpanded ? 'max-h-[1200px]' : 'max-h-[500px]'} opacity-100 lg:flex-1 lg:min-w-0`
                             }`}
                         >
                             <ProjectCard

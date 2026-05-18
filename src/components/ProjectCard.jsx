@@ -3,18 +3,18 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import Folder from '../assets/folder-icon-2.png'
 const ProjectCard = ({title, description, GitHubLink, TechStack, photo, isExpanded, onToggle}) => {
     return (
-        <div className={`bg-white p-4 m-3 md:m-6 ${isExpanded ? 'w-full md:w-[700px]' : 'w-[260px] h-[320px] md:w-[280px] md:h-[400px]'}`}>
+        <div className={`bg-white p-4 m-3 md:m-6 ${isExpanded ? 'w-full md:w-[700px]' : 'w-[260px] h-[320px] md:w-[280px] md:h-[400px] lg:w-full lg:mx-0'}`}>
             {!isExpanded ? (
-                <div className="items-center justify-center flex flex-col h-full space-y-3">
-                <img
-                    src={Folder}
-                    alt="Folder Icon"
-                    className="w-[55%] max-w-[180px] aspect-square object-contain cursor-pointer hover:scale-105 transition-transform duration-200"
-                    onClick={onToggle}
-                />
-                <div className="h-1 w-10 bg-gray-300 opacity-50"></div>
-                <span className="text-xl font-bold"> {title}</span>
-                 <p className="italic text-gray-800"> {TechStack} </p>
+                <div className="items-center justify-center flex flex-col h-full space-y-3 w-full">
+                    <img
+                        src={Folder}
+                        alt="Folder Icon"
+                        className="w-[80%] max-w-[180px] md:w-[90%] md:max-w-[220px] lg:max-w-[240px] aspect-square object-contain cursor-pointer hover:scale-105 transition-transform duration-200"
+                        onClick={onToggle}
+                    />
+                    <div className="h-1 w-10 bg-gray-300 opacity-50"></div>
+                    <span className="text-xl font-bold"> {title}</span>
+                    <p className="italic text-gray-800"> {TechStack} </p>
                  </div> 
                 
             ) : (
