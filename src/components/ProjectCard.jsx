@@ -6,13 +6,13 @@ const ProjectCard = ({title, description, GitHubLink, TechStack, photo, isExpand
 
     return (
         
-        <div className={` transition-all duration-500 ease-out ${isExpanded ? 'lg:w-[800px] lg:h-full' : 'w-full h-[400px]'} bg-white p-4 m-6`}>
+        <div className={`transition-all duration-500 ease-out ${isExpanded ? 'w-full md:w-[600px] lg:w-[800px]' : 'w-full h-[320px] md:h-[400px]'} bg-white p-4 m-3 md:m-6`}>
             {!isExpanded ? (
                 <div className="items-center justify-center flex flex-col h-full space-y-3">
-                <img 
-                    src={Folder} 
-                    alt="Folder Icon" 
-                    className="w-[200px] h-[200px] min-w-[250px] min-h-[250px] flex-shrink-0 cursor-pointer hover:scale-105 transition-transform duration-200"
+                <img
+                    src={Folder}
+                    alt="Folder Icon"
+                    className="w-[55%] max-w-[180px] aspect-square object-contain cursor-pointer hover:scale-105 transition-transform duration-200"
                     onClick={onToggle}
                 />
                 <div className="h-1 w-10 bg-gray-300 opacity-50"></div>

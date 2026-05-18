@@ -35,36 +35,58 @@ const AboutMe = () => {
     const handleMouseLeave = () => {
         setIsDragging(false);
     }
+
+    const handleTouchStart = (event) => {
+        setIsDragging(true);
+        setDragStart(event.touches[0].clientX);
+    }
+
+    const handleTouchMove = (event) => {
+        if (!isDragging) return;
+        const dragDistance = event.touches[0].clientX - dragStart;
+        if (dragDistance > 50) {
+            setCurrentIndex(prevIndex => prevIndex === 0 ? photos.length - 1 : prevIndex - 1);
+            setIsDragging(false);
+        } else if (dragDistance < -50) {
+            setCurrentIndex(prevIndex => (prevIndex + 1) % photos.length);
+            setIsDragging(false);
+        }
+    }
+
+    const handleTouchEnd = () => {
+        setIsDragging(false);
+    }
+
     return (
         
 
-        <div id="about" className=" w-full max-w-5xl mx-auto justify-center items-center p-20 ">
+        <div id="about" className="w-full max-w-5xl mx-auto justify-center items-center p-4 md:p-20">
             <div className="text-4xl">
                 about me
             </div>
             {/* pictures and description section */}
-            <div className="flex flex-col h-[950px] md:h-[500px] md:flex-row pt-8 justify-center items-center text-center">
+            <div className="flex flex-col h-auto md:h-[500px] md:flex-row pt-8 justify-center items-center text-center">
                 {/* swiping photo cards */}
-                <div className="flex flex-1 h-[300px] justify-center items-center m-10 cursor-grab active:cursor-grabbing"
+                <div className="relative flex flex-1 h-[240px] md:h-[320px] justify-center items-center m-4 md:m-10 cursor-grab active:cursor-grabbing"
                     onMouseDown={handleMouseDown}
                     onMouseMove={handleMouseMove}
                     onMouseUp={handleMouseUp}
-                    onMouseLeave={handleMouseLeave}>
-                    
+                    onMouseLeave={handleMouseLeave}
+                    onTouchStart={handleTouchStart}
+                    onTouchMove={handleTouchMove}
+                    onTouchEnd={handleTouchEnd}>
+
                     {photos.map((photo, index) => {
                         const rotation = (index - currentIndex) * 5 - 1 + Math.random() * 3;
-                        const zIndex = photos.length - Math.abs(index - currentIndex); // setting visibility priority for each photo
-                        const opacity = index === currentIndex ? 1 : 0.5; // current photo fully visible
-                        const scale = index === currentIndex ? 1 : 0.8; // current photo full size
+                        const zIndex = photos.length - Math.abs(index - currentIndex);
+                        const opacity = index === currentIndex ? 1 : 0.5;
+                        const scale = index === currentIndex ? 1 : 0.8;
                         const photoAnimation = {
-                                    transform: `rotate(${rotation}deg) scale(${scale})`,
+                                    transform: `translate(-50%, -50%) rotate(${rotation}deg) scale(${scale})`,
                                     zIndex: zIndex,
                                     opacity: opacity,
                                 }
-                        // only render current, previous, and next photo
                         if (Math.abs(index - currentIndex) > 1 &&
-                                // checking edge cases: last photo can appear when current is first photo
-                                // and first photo appears when current is last photo
                             !(currentIndex === 0 && index === photos.length - 1) &&
                             !(currentIndex === photos.length - 1 && index === 0)) {
                             return null;
@@ -74,16 +96,16 @@ const AboutMe = () => {
                                 key={index}
                                 src={photo}
                                 alt={`Photo ${index + 1}`}
-                                className="absolute w-[300px] h-[300px] object-cover rounded-lg shadow-lg transition-all duration-300 hover:scale-103"
+                                className="absolute top-1/2 left-1/2 w-[200px] h-[200px] md:w-[280px] md:h-[280px] object-cover rounded-lg shadow-lg transition-all duration-300"
                                 style={photoAnimation}
                                 draggable={false}
-                            />   
+                            />
                         )})
                     }
                 </div>
     
                 {/* description */}
-                <div className="flex-1 md:w-1/2 m-10 text-left">
+                <div className="flex-1 md:w-1/2 m-4 md:m-10 text-left">
                     <p className="pb-4">
                         Hi! I am currently in my final year studying a Bachelor of Science majoring in Computer Science at the University of Auckland. I have a passion for creating aesthetic and functional web applications that solve real world problems, while also making a positive impact on people. 
                     </p>
@@ -91,7 +113,7 @@ const AboutMe = () => {
                         In my free time I enjoy travelling, editing, gymming, listening to music and spending time with loved ones. I'm always eager to learn and take on new challenges, and make genuine connections with people.
                     </p>
                     <p className="italic text-gray-600 text-sm">
-                        [swipe photos left and right]
+                        [swipe or drag photos left and right]
                     </p>
                 </div>
             </div>

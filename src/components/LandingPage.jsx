@@ -63,7 +63,7 @@ const LandingPage = () => {
                     <a href="#" className="text-2xl font-bold">ashleeshum</a>
                 </div>
                 {/* nav links rhs */}
-                <div className="flex flex-row space-x-4">
+                <div className="flex flex-row space-x-2 md:space-x-4 text-sm md:text-base">
                     <a href="#home" className="relative group">
                         home
                         <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-black transition-all duration-300 group-hover:w-full"></span>
@@ -143,12 +143,12 @@ const LandingPage = () => {
                     <rect width="100%" height="100%" fill="url(#dynamic-gradient)" filter="url(#noise)" />
                 </svg>
             {/* intro */}
-            <div className="text-6xl md:pl-30 z-10 text-left">
+            <div className="text-3xl md:text-6xl md:pl-30 z-10 text-center md:text-left px-6 md:px-0">
                 Hi! My name is <br />
-                <span className="font-bold md:text-8xl text-left">Ashlee Shum.</span>
+                <span className="font-bold text-4xl md:text-8xl">Ashlee Shum.</span>
             </div>
             {/* social icon links */}
-            <div className="flex flex-row absolute pt-60 md:pl-30 ">
+            <div className="flex flex-row absolute bottom-8 left-1/2 -translate-x-1/2 md:translate-x-0 md:left-auto md:bottom-auto md:pt-60 md:pl-30">
                 <a href="mailto:ashlee@shum.co.nz" target="_blank" rel="noopener noreferrer">
                     <MailIcon className="m-4 ml-0 hover:text-black transition-transform duration-300"/>
                 </a>

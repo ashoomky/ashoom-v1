@@ -30,13 +30,13 @@ const Projects = () => {
         },
     ]
     return (
-        <div id="projects" className="w-full justify-center p-30">
+        <div id="projects" className="w-full justify-center p-4 md:p-30">
             {/* title */}
             <div className="text-4xl">
                 projects
             </div>
             {/* project cards */}
-            <div className="flex md:flex-row flex-col justify-center items-center mt-20">
+            <div className="flex md:flex-row flex-col justify-center items-center mt-8 md:mt-20">
                 {projects.map((project, index) => (
                     <ProjectCard 
                     key={index} 
