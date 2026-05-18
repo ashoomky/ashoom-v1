@@ -106,7 +106,7 @@ const Experience = () => {
         }
     };
     return (
-        <div id="experience" className="w-full text-center pt-20">
+        <div id="experience" className="w-full text-center pt-24 md:pt-32">
             {/* title */}
             <span className="text-4xl">
                 experience

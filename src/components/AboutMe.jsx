@@ -60,14 +60,14 @@ const AboutMe = () => {
     return (
         
 
-        <div id="about" className="w-full max-w-5xl mx-auto justify-center items-center p-4 md:p-20">
+        <div id="about" className="w-full max-w-5xl mx-auto justify-center items-center p-4 pt-24 md:p-20">
             <div className="text-4xl">
                 about me
             </div>
             {/* pictures and description section */}
             <div className="flex flex-col h-auto md:h-[500px] md:flex-row pt-8 justify-center items-center text-center">
                 {/* swiping photo cards */}
-                <div className="relative flex flex-1 h-[240px] md:h-[320px] justify-center items-center m-4 md:m-10 cursor-grab active:cursor-grabbing"
+                <div className="relative flex w-full md:flex-1 h-[240px] md:h-[320px] justify-center items-center m-4 md:m-10 cursor-grab active:cursor-grabbing"
                     onMouseDown={handleMouseDown}
                     onMouseMove={handleMouseMove}
                     onMouseUp={handleMouseUp}

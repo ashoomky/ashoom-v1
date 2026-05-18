@@ -30,7 +30,7 @@ const Projects = () => {
         },
     ]
     return (
-        <div id="projects" className="w-full justify-center p-4 md:p-30">
+        <div id="projects" className="w-full justify-center p-4 pt-24 md:p-30">
             {/* title */}
             <div className="text-4xl">
                 projects
