@@ -4,18 +4,29 @@ import { useRef, useState, useEffect } from "react"
 const Experience = () => {
     const experiences = [
         {
+            title: "Project Manager - UOAVC Website at WDCC (Web Development and Consulting Club)",
+            start: "February 2026",
+            end: "Current",
+            description: (
+                <>
+                    I led the end-to-end delivery of a <strong>client-facing web product</strong> for the UoA Volleyball Club. I ran <strong>stakeholder discovery sessions</strong> to define user problems, translated requirements into a <strong>prioritised MVP scope</strong>, and managed a <strong>cross-functional team</strong> of developers and a designer in an <strong>agile environment</strong> — owning sprint planning, scope decisions, and client communication throughout.
+                </>
+
+            )
+        },
+        {
             title: "Marketing Director at UOACS (University of Auckland Compsci Society)",
             start: "July 2025",
             end: "Current",
             description: (
                 <>
-                    As Marketing Director, I <strong>lead weekly meetings</strong>, delegate tasks, and facilitate brainstorming to drive creativity. 
-                    <br/>
-                    <br/>
-                    I manage a team of <strong>5</strong>, coordinate campaigns across platforms, and increased account engagement by 
-                    <strong> 278%</strong> in one month. I also oversaw content strategy that boosted follower growth by <strong>150% </strong> 
-                    and post reach by <strong>200%</strong>, strengthening my skills in <em>leadership, communication, problem-solving, 
-                    and adaptability</em>.
+                    As Marketing Director, I <strong>lead weekly meetings</strong>, delegate tasks, and facilitate brainstorming to drive creativity.
+                    <br />
+                    <br />
+                    I manage a team of <strong>5</strong>, coordinate campaigns across platforms, and increased account engagement by
+                    <strong> 278%</strong> in one month. I also oversaw content strategy that boosted follower growth by <strong>150% </strong>
+                    and post reach by <strong>200%</strong>, strengthening my skills in <em>leadership, communication, problem-solving,
+                        and adaptability</em>.
                 </>
 
             )
