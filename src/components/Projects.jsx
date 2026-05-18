@@ -36,7 +36,7 @@ const Projects = () => {
                 projects
             </div>
             {/* project cards */}
-            <div className="flex lg:flex-row flex-col justify-center items-center lg:items-start mt-8 md:mt-20 lg:gap-2">
+            <div className={`flex flex-col items-center justify-center mt-8 md:mt-20 ${expandedCardIndex === null ? 'lg:flex-row lg:items-start lg:gap-2' : ''}`}>
                 {projects.map((project, index) => {
                     const isExpanded = expandedCardIndex === index;
                     const isHidden = expandedCardIndex !== null && !isExpanded;
@@ -45,8 +45,10 @@ const Projects = () => {
                             key={index}
                             className={`overflow-hidden ${
                                 isHidden
-                                    ? 'max-h-0 lg:w-0 lg:flex-none opacity-0'
-                                    : `${isExpanded ? 'max-h-[1200px]' : 'max-h-[500px]'} opacity-100 lg:flex-1 lg:min-w-0`
+                                    ? 'max-h-0 opacity-0'
+                                    : isExpanded
+                                        ? 'max-h-[1200px] opacity-100 w-full'
+                                        : 'max-h-[500px] opacity-100 lg:flex-1 lg:min-w-0'
                             }`}
                         >
                             <ProjectCard
