@@ -31,7 +31,7 @@ const AboutMe = () => {
     };
     const handleMouseUp = () => {
         setIsDragging(false);
-    };  
+    };
     const handleMouseLeave = () => {
         setIsDragging(false);
     }
@@ -58,7 +58,7 @@ const AboutMe = () => {
     }
 
     return (
-        
+
 
         <div id="about" className="w-full max-w-5xl mx-auto justify-center items-center p-4 pt-24 md:p-20">
             <div className="text-4xl">
@@ -82,10 +82,10 @@ const AboutMe = () => {
                         const opacity = index === currentIndex ? 1 : 0.5;
                         const scale = index === currentIndex ? 1 : 0.8;
                         const photoAnimation = {
-                                    transform: `translate(-50%, -50%) rotate(${rotation}deg) scale(${scale})`,
-                                    zIndex: zIndex,
-                                    opacity: opacity,
-                                }
+                            transform: `translate(-50%, -50%) rotate(${rotation}deg) scale(${scale})`,
+                            zIndex: zIndex,
+                            opacity: opacity,
+                        }
                         if (Math.abs(index - currentIndex) > 1 &&
                             !(currentIndex === 0 && index === photos.length - 1) &&
                             !(currentIndex === photos.length - 1 && index === 0)) {
@@ -100,17 +100,18 @@ const AboutMe = () => {
                                 style={photoAnimation}
                                 draggable={false}
                             />
-                        )})
+                        )
+                    })
                     }
                 </div>
-    
+
                 {/* description */}
                 <div className="flex-1 md:w-1/2 m-4 md:m-10 text-left">
                     <p className="pb-4">
-                        Hi! I am currently in my final year studying a Bachelor of Science majoring in Computer Science at the University of Auckland. I have a passion for creating aesthetic and functional web applications that solve real world problems, while also making a positive impact on people. 
+                        Hi! I'm a final year Computer Science student at the University of Auckland who loves building things that are both functional and meaningful. Right now I'm Project Manager at WDCC and Marketing Director at UOACS, and actively looking for graduate roles in product management, software engineering, analysis, and product delivery across New Zealand and Australia.
                     </p>
                     <p className="pb-4">
-                        In my free time I enjoy travelling, editing, gymming, listening to music and spending time with loved ones. I'm always eager to learn and take on new challenges, and make genuine connections with people.
+                        Outside of university I enjoy travelling, creating and editing content, playing the piano, and spending time with the people I care about.
                     </p>
                     <p className="italic text-gray-600 text-sm">
                         [swipe or drag photos left and right]
