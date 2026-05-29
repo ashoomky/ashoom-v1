@@ -4,68 +4,79 @@ import { useRef, useState, useEffect } from "react"
 const Experience = () => {
     const experiences = [
         {
-            title: "Project Manager - UOAVC Website at WDCC (Web Development and Consulting Club)",
+            title: "Project Manager at WDCC",
             start: "February 2026",
             end: "Current",
             description: (
                 <>
-                    I led the end-to-end delivery of a <strong>client-facing web product</strong> for the UoA Volleyball Club. I ran <strong>stakeholder discovery sessions</strong> to define user problems, translated requirements into a <strong>prioritised MVP scope</strong>, and managed a <strong>cross-functional team</strong> of developers and a designer in an <strong>agile environment</strong> — owning sprint planning, scope decisions, and client communication throughout.
+                    Leading end-to-end product delivery of a client-facing web platform for the UoA Volleyball Club,
+                    built on Next.js, Payload CMS, and MongoDB.
+                    <br />
+                    <br />
+                    <ul className="list-disc list-inside space-y-1">
+                        <li>Ran stakeholder discovery sessions using <strong>Jobs-to-be-Done</strong> framing to surface user problems around sign-up friction, event visibility, and member engagement</li>
+                        <li>Authored a <strong>Product Requirements Document</strong> covering <strong>10+ functional requirements</strong>, applying <strong>MoSCoW prioritisation</strong> and <strong>RICE scoring</strong> to define a phased MVP scope</li>
+                        <li>Managed a cross-functional team of <strong>6 developers</strong>, <strong>1 designer</strong>, and <strong>1 technical lead</strong> in an agile environment</li>
+                        <li>Owned sprint planning, backlog management, and served as the primary point of contact between the client and development team</li>
+                    </ul>
                 </>
-
             )
         },
         {
-            title: "Marketing Director at UOACS (University of Auckland Compsci Society)",
+            title: "Marketing Director at UOACS",
             start: "July 2025",
             end: "Current",
             description: (
                 <>
-                    As Marketing Director, I <strong>lead weekly meetings</strong>, delegate tasks, and facilitate brainstorming to drive creativity.
+                    Leading a 4-person marketing team at the University of Auckland Computer Science Society,
+                    owning strategy, content direction, and campaign execution across platforms.
                     <br />
                     <br />
-                    I manage a team of <strong>5</strong>, coordinate campaigns across platforms, and increased account engagement by
-                    <strong> 278%</strong> in one month. I also oversaw content strategy that boosted follower growth by <strong>150% </strong>
-                    and post reach by <strong>200%</strong>, strengthening my skills in <em>leadership, communication, problem-solving,
-                        and adaptability</em>.
+                    <ul className="list-disc list-inside space-y-1">
+                        <li>Produced content that reached <strong>1,568,894 views</strong> across platforms within <strong>90 days</strong></li>
+                        <li>Increased account engagement by <strong>278%</strong> in one month</li>
+                        <li>Grew follower count by <strong>150%</strong> and boosted post reach by <strong>200%</strong></li>
+                        <li>Led weekly strategy meetings, delegating tasks and guiding content creation aligned with club objectives</li>
+                    </ul>
                 </>
-
             )
         },
         {
-            title: "YouTube Editor / Vlogger",
-            start: "September 2022",
+            title: "Founder & Content Creator",
+            start: "November 2022",
             end: "Current",
             description: (
                 <>
-                    I created and manage my own <strong>YouTube channel</strong> as a
-                    <em> vlogger and video editor</em>, producing lifestyle and travel content.
-                    I handle all aspects of production, including filming, editing, and audience engagement.
+                    Built and grew a multi-platform content brand from scratch across YouTube, Instagram, and TikTok,
+                    managing the full production lifecycle from ideation to publish.
                     <br />
                     <br />
-                    My most viewed video reached <strong>40,000+ views</strong>, and several others gained consistent traction,
-                    demonstrating my ability to create engaging, shareable content.
-                    This experience strengthened my skills in <strong>video editing</strong>,
-                    <strong> storytelling</strong>, and <strong>digital media</strong>,
-                    while also teaching me how to analyse audience metrics to grow viewership.
+                    <ul className="list-disc list-inside space-y-1">
+                        <li>Grew to <strong>3,000 YouTube subscribers</strong> and <strong>6,800+ combined followers</strong> across platforms</li>
+                        <li>Reached <strong>207,000+ Instagram views</strong> in 90 days, a <strong>407.8% increase</strong> vs. prior period</li>
+                        <li>Drove <strong>785,000+ impressions</strong> over 12 months with a <strong>4.7% click-through rate</strong></li>
+                        <li>Applied thumbnail <strong>A/B testing</strong> and SEO-led title optimisation to improve algorithmic reach</li>
+                        <li>Used per-video analytics to iterate on content strategy and improve average view duration to <strong>4:32</strong></li>
+                    </ul>
                 </>
             )
         },
         {
-            title: "FOH at Little Penang",
-            start: "Feb 2023",
+            title: "Front of House at Little Penang",
+            start: "February 2023",
             end: "June 2023",
             description: (
                 <>
-                    Waitressed at Little Penang, multitasked between <strong>taking 50+ orders per shift</strong>,
-                    making drinks, delivering food, and attending to customers in a fast-paced environment. <br />
+                    Worked front of house at a busy Malaysian restaurant, managing the full customer experience
+                    in a fast-paced, high-volume environment.
                     <br />
-                    Learned to manage <strong>high-volume orders efficiently</strong> while maintaining
-                    <strong> customer satisfaction</strong> through friendly and attentive service. <br />
                     <br />
-                    Strengthened skills in <em>teamwork, communication, adaptability, and time management </em>
-                    by coordinating with kitchen staff and handling peak rush hours smoothly.
+                    <ul className="list-disc list-inside space-y-1">
+                        <li>Handled <strong>50+ orders per shift</strong> across taking orders, making drinks, and delivering food simultaneously</li>
+                        <li>Coordinated closely with kitchen staff during peak hours to keep service running smoothly</li>
+                        <li>Maintained high customer satisfaction through attentive, friendly service under pressure</li>
+                    </ul>
                 </>
-
             )
         }
     ];

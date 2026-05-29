@@ -111,7 +111,7 @@ const AboutMe = () => {
                         Hi! I'm a final year Computer Science student at the University of Auckland who loves building things that are both functional and meaningful. Right now I'm Project Manager at WDCC and Marketing Director at UOACS, and actively looking for graduate roles in product management, software engineering, analysis, and product delivery across New Zealand and Australia.
                     </p>
                     <p className="pb-4">
-                        Outside of university I enjoy travelling, creating and editing content, playing the piano, and spending time with the people I care about.
+                        Outside of uni I enjoy travelling, creating content, playing badminton and piano. I'm always down for a chat, feel free to reach out :) !                    
                     </p>
                     <p className="italic text-gray-600 text-sm">
                         [swipe or drag photos left and right]
