@@ -1,84 +1,104 @@
-import { X, ArrowLeft, File } from 'lucide-react';
+import { useEffect, useState } from 'react';
+import { ArrowLeft, FileText } from 'lucide-react';
 import GitHubIcon from '@mui/icons-material/GitHub';
-import Folder from '../assets/folder-icon-2.png'
-const ProjectCard = ({title, description, GitHubLink, TechStack, photo, isExpanded, onToggle}) => {
+import { getAverageColor } from '../utils/averageColor';
+
+const TechPills = ({ stack }) => {
+    if (!stack) return null;
+    const items = stack.split(',').map((item) => item.trim()).filter(Boolean);
     return (
-        <div className={`bg-white p-4 ${isExpanded ? 'my-3 md:my-6 mx-auto w-full md:w-[700px]' : 'm-3 md:m-6 w-[260px] h-[320px] md:w-[280px] md:h-[400px] lg:w-full lg:mx-0'}`}>
-            {!isExpanded ? (
-                <div className="items-center justify-center flex flex-col h-full space-y-3 w-full">
-                    <img
-                        src={Folder}
-                        alt="Folder Icon"
-                        className="w-[80%] max-w-[180px] md:w-[90%] md:max-w-[220px] lg:max-w-[240px] aspect-square object-contain cursor-pointer hover:scale-105 transition-transform duration-200"
+        <div className="flex flex-wrap gap-1.5">
+            {items.map((item, index) => (
+                <span
+                    key={index}
+                    className="text-xs font-medium text-gray-500 bg-gray-100 rounded-full px-2.5 py-1"
+                >
+                    {item}
+                </span>
+            ))}
+        </div>
+    );
+};
+
+const ProjectCard = ({ title, description, GitHubLink, TechStack, photo, isExpanded, onToggle }) => {
+    const [overlayColor, setOverlayColor] = useState('rgb(229, 231, 235)');
+
+    useEffect(() => {
+        if (!photo) return;
+        let cancelled = false;
+        getAverageColor(photo).then((color) => {
+            if (!cancelled) setOverlayColor(color);
+        });
+        return () => { cancelled = true; };
+    }, [photo]);
+
+    if (isExpanded) {
+        return (
+            <div className="w-full md:w-[820px] mx-auto bg-white border border-gray-200 rounded-2xl text-left">
+                <div className="p-6 md:p-10">
+                    <button
                         onClick={onToggle}
-                    />
-                    <div className="h-1 w-10 bg-gray-300 opacity-50"></div>
-                    <span className="text-xl font-bold"> {title}</span>
-                    <p className="italic text-gray-800"> {TechStack} </p>
-                 </div> 
-                
-            ) : (
-                
-                // file paper (expanded state)
-                <div className="w-full h-full bg-white  rounded-lg shadow-2xl relative transition-all duration-500 ease-out">
-                    {/* file header with yellow border */}
-                    <div className="bg-amber-100  p-7 rounded-t-lg relative">
-                        {/* folder tab that stays visible - click to close as well */}
-                        <div 
-                            className="absolute -top-6 left-4 w-30 h-6 bg-amber-100 rounded-t-lg cursor-pointer hover:bg-amber-200 transition-colors duration-200 flex items-center justify-center"
-                            onClick={onToggle}
-                        >
-                            {/* close button */}
-                            <button 
-                                className="absolute text-amber-600 hover:text-amber-800 transition-colors duration-200 cursor-pointer" 
-                                onClick={onToggle}
+                        className="inline-flex items-center gap-1.5 text-sm text-gray-500 hover:text-gray-900 transition-colors duration-200 cursor-pointer mb-6"
+                    >
+                        <ArrowLeft className="w-4 h-4" />
+                        back
+                    </button>
+
+                    <div className="flex items-start justify-between gap-4 mb-3">
+                        <h2 className="text-2xl md:text-4xl font-semibold text-gray-900">{title}</h2>
+                        {GitHubLink && (
+                            <a
+                                href={GitHubLink}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label="View on GitHub"
+                                className="flex-shrink-0 text-gray-400 hover:text-gray-900 transition-colors duration-200"
                             >
-                                <ArrowLeft className="w-4 h-4 cursor-pointer" />
-                            </button>
-                        </div>
-                        
-                        
-                        <div className="flex items-center justify-between">
-                            <h2 className="text-3xl font-bold text-gray-800 ">{title}</h2>
-                            {GitHubLink && (
-                                <div className="mt-auto">
-                                    <a 
-                                        href={GitHubLink} 
-                                        target="_blank" 
-                                        rel="noopener noreferrer"
-                                        className="inline-flex items-center gap-2 hover:text-gray-600 text-black px-4 py-2 rounded-lg transition-colors duration-200"
-                                    >
-                                        <GitHubIcon className="w-10 h-10" />
-
-                                    </a>
-                                </div>
-                            )}
-                        </div>
-                        <p className="text-lg font-semibold text-gray-600 italic text-left opacity-60">{TechStack}</p>
-                    </div>
-
-                    {/* file content area */}
-                    <div className="p-6 h-full flex flex-col">
-                        {/* project image */}
-                        {photo && (
-                            <div className="mb-6 flex justify-center">
-                                <img 
-                                    src={photo} 
-                                    alt={title} 
-                                    className="max-w-full max-h-64 object-contain rounded-lg shadow-md"
-                                />
-                            </div>
+                                <GitHubIcon className="w-7 h-7" />
+                            </a>
                         )}
-                        
-                        {/* description */}
-                        <div className="m-4">
-                            <p className="text-gray-700 leading-relaxed text-base">{description}</p>
-                        </div>
-                        
                     </div>
+
+                    <div className="mb-6">
+                        <TechPills stack={TechStack} />
+                    </div>
+
+                    {photo && (
+                        <div className="mb-6 rounded-xl overflow-hidden bg-gray-50">
+                            <img src={photo} alt={title} className="w-full max-h-80 md:max-h-[28rem] object-contain" />
+                        </div>
+                    )}
+
+                    <p className="text-gray-600 leading-relaxed text-base md:text-lg">{description}</p>
                 </div>
-            )}
+            </div>
+        );
+    }
+
+    return (
+        <div
+            onClick={onToggle}
+            className="group/card w-[260px] md:w-[280px] h-full bg-white border border-gray-200 rounded-2xl overflow-hidden cursor-pointer hover:shadow-md transition-shadow duration-200 flex flex-col text-left"
+        >
+            <div className="h-36 md:h-40 flex-shrink-0 bg-gray-50 relative flex items-center justify-center">
+                {photo ? (
+                    <>
+                        <img src={photo} alt={title} className="w-full h-full object-cover" />
+                        <div
+                            className="absolute inset-0 group-hover/card:opacity-0 transition-opacity duration-500 ease-out"
+                            style={{ backgroundColor: overlayColor }}
+                        />
+                    </>
+                ) : (
+                    <FileText className="w-8 h-8 text-gray-300" />
+                )}
+            </div>
+            <div className="p-4 flex flex-col gap-2 flex-1">
+                <h3 className="text-base font-semibold text-gray-900">{title}</h3>
+                <TechPills stack={TechStack} />
+                <p className="text-sm text-gray-500 leading-relaxed line-clamp-3">{description}</p>
+            </div>
         </div>
     );
 }
- export default ProjectCard
+export default ProjectCard
