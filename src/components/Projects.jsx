@@ -4,9 +4,20 @@ import FindrScreenshot from "../assets/FindrScreenshot.png"
 import PersonalWebsiteScreenshot from "../assets/personal-website-screenshot.jpg"
 import AusaPhoto from "../assets/ausa-project-photo.png"
 import RobinPhoto from "../assets/Robin.png"
-import { useState } from "react"
+import { useState, useRef } from "react"
+import { ChevronLeft, ChevronRight } from "lucide-react"
 const Projects = () => {
     const [expandedCardIndex, setExpandedCardIndex] = useState(null);
+    const scrollContainerRef = useRef(null);
+    const scroll = (direction) => {
+        if (scrollContainerRef.current) {
+            const amount = 300;
+            scrollContainerRef.current.scrollBy({
+                left: direction === "left" ? -amount : amount,
+                behavior: "smooth"
+            });
+        }
+    };
     const projects = [
         {
             title: "Findr",
@@ -35,6 +46,27 @@ const Projects = () => {
             GitHubLink: "https://github.com/andrecamerino/Robin",
             TechStack: "HTML, CSS, JavaScript",
             photo: RobinPhoto
+        },
+        {
+            title: "UOAVC Club Website",
+            description: "Production web platform for the UoA Volleyball Club serving 200+ members, handling event sign-ups, member accounts, waitlists, and an admin dashboard for club executives. Leading product delivery as PM, owning requirements and sprint planning, and contributing to design and development where needed.",
+            GitHubLink: "https://github.com/UoaWDCC/uoavc",
+            TechStack: "Next.js, Payload CMS, MongoDB, TypeScript, TailwindCSS",
+            photo: null
+        },
+        {
+            title: "Case Comp – Air New Zealand Strategic Review",
+            description: "Diagnosed the airline's highest-impact, most urgent competitive gap using an impact/urgency prioritisation framework, pinpointing youth pricing as the key driver of lost bookings to competitors. Designed three differentiated strategies to close the gap, benchmarked against real airline precedents including Qatar Airways' Student Club and Icelandair's experiential campaigns. Placed 4th of 24 teams and advanced to finals, researching, designing, and building the full presentation deck in under 4 hours as a team of 4.",
+            GitHubLink: null,
+            TechStack: "4th of 24 teams, Finalist",
+            photo: null
+        },
+        {
+            title: "Community Case Challenge – Port of Auckland (SDG 8)",
+            description: "Designed a worker participation platform for a $393M port operator, deliberately built on an existing daily-use system to lower adoption friction rather than launch standalone. Benchmarked the solution against Balfour Beatty, PSA Singapore, and Kaiser Permanente, and designed a staggered rollout that doubles as a quasi-experimental evaluation. Conducted a site visit and stakeholder Q&A, delivering full research, strategy, and presentation in under 29 hours as a team of 4.",
+            GitHubLink: null,
+            TechStack: "Recognised by judges for strongest research",
+            photo: null
         }
     ]
     return (
@@ -44,33 +76,54 @@ const Projects = () => {
                 projects
             </div>
             {/* project cards */}
-            <div className={`flex flex-col items-center justify-center ${expandedCardIndex === null ? 'lg:flex-row lg:items-start lg:gap-2' : ''}`}>
-                {projects.map((project, index) => {
-                    const isExpanded = expandedCardIndex === index;
-                    const isHidden = expandedCardIndex !== null && !isExpanded;
-                    return (
-                        <div
-                            key={index}
-                            className={`overflow-hidden ${isHidden
-                                    ? 'max-h-0 opacity-0'
-                                    : isExpanded
-                                        ? 'max-h-[1200px] opacity-100 w-full'
-                                        : 'max-h-[500px] opacity-100 lg:flex-1 lg:min-w-0'
-                                }`}
-                        >
-                            <ProjectCard
-                                title={project.title}
-                                description={project.description}
-                                GitHubLink={project.GitHubLink}
-                                TechStack={project.TechStack}
-                                photo={project.photo}
-                                isExpanded={isExpanded}
-                                onToggle={() => setExpandedCardIndex(isExpanded ? null : index)}
-                            />
-                        </div>
-                    );
-                })}
-            </div>
+            {expandedCardIndex === null ? (
+                <div className="relative w-full flex items-center">
+                    <button
+                        onClick={() => scroll("left")}
+                        aria-label="Scroll projects left"
+                        className="hidden md:flex flex-shrink-0 items-center justify-center w-10 h-10 rounded-full bg-white/80 hover:bg-white shadow-md cursor-pointer z-10 mr-1"
+                    >
+                        <ChevronLeft className="w-5 h-5" />
+                    </button>
+                    <div
+                        ref={scrollContainerRef}
+                        className="flex flex-row items-start overflow-x-auto scroll-smooth snap-x snap-mandatory gap-2 no-scrollbar px-1"
+                    >
+                        {projects.map((project, index) => (
+                            <div key={index} className="flex-shrink-0 snap-start">
+                                <ProjectCard
+                                    title={project.title}
+                                    description={project.description}
+                                    GitHubLink={project.GitHubLink}
+                                    TechStack={project.TechStack}
+                                    photo={project.photo}
+                                    isExpanded={false}
+                                    onToggle={() => setExpandedCardIndex(index)}
+                                />
+                            </div>
+                        ))}
+                    </div>
+                    <button
+                        onClick={() => scroll("right")}
+                        aria-label="Scroll projects right"
+                        className="hidden md:flex flex-shrink-0 items-center justify-center w-10 h-10 rounded-full bg-white/80 hover:bg-white shadow-md cursor-pointer z-10 ml-1"
+                    >
+                        <ChevronRight className="w-5 h-5" />
+                    </button>
+                </div>
+            ) : (
+                <div className="flex flex-col items-center justify-center">
+                    <ProjectCard
+                        title={projects[expandedCardIndex].title}
+                        description={projects[expandedCardIndex].description}
+                        GitHubLink={projects[expandedCardIndex].GitHubLink}
+                        TechStack={projects[expandedCardIndex].TechStack}
+                        photo={projects[expandedCardIndex].photo}
+                        isExpanded={true}
+                        onToggle={() => setExpandedCardIndex(null)}
+                    />
+                </div>
+            )}
         </div>
     )
 }
